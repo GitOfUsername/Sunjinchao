@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>正则</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<form role="form">
+  <div class="form-group">
+    <label for="name">名称</label>
+    <input type="text" class="form-control" id="name" placeholder="请输入名称">
+    <div id="namea"></div>
+  </div>
+  <div class="form-group">
+    <label for="name">密码</label>
+    <input type="text" class="form-control" id="pwd" placeholder="请输入密码">
+    <div id="pwda"></div>
+  </div>
+  <div class="form-group">
+    <label for="name">年龄</label>
+    <input type="text" class="form-control" id="age" placeholder="请输入年龄">
+    <div id="agea"></div>
+  </div>
+  <div class="form-group">
+    <label for="name">电话号码</label>
+    <input type="text" class="form-control" id="phonenum" placeholder="请输入电话号码">
+    <div id="phonenuma"></div>
+  </div>
+
+  <div class="form-group">
+    <label for="name">邮箱</label>
+    <input type="text" class="form-control" id="email" placeholder="请输入邮箱">
+    <div id="emaila"></div>
+  </div>
+  <button type="submit" class="btn btn-default">提交</button>
+</form>
+</body>
+</html>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#name").blur(function(){
+  	var name = $("#name").val();
+  	var march = /^[a-z_-]{1}[a-z0-9_-]{3,16}$/.test(name);
+  	$("#namea").empty();
+  	if(march){
+  		$("#namea").append("<b>ok</b>");
+  	}else{
+  		$("#namea").append("<b>false</b>");
+  	}
+  });
+  $("#pwd").blur(function(){
+  	var pwd = $(this).val();
+  	var match = /^\d{6,}$/.test(pwd);
+  	$("#pwda").empty();
+  	if(match){
+  		$("#pwda").append("<b>ok</b>");
+  	}else{
+  		$("#pwda").append("<b>false</b>");
+  	}
+  })
+  $("#age").blur(function(){
+  	var age = $(this).val();
+  	var match = /^\d+$/.test(age);
+  	$("#agea").empty();
+  	if(match){
+  		$("#agea").append("<b>ok</b>");
+  	}else{
+  		$("#agea").append("<b>false</b>");
+  	}
+  })
+  $("#phonenum").blur(function(){
+  	var phonenum = $(this).val();
+  	var match = /^\d{11}$/.test(phonenum);
+  	$("#phonenuma").empty();
+  	if(match){
+  		$("#phonenuma").append("<b>ok</b>");
+  	}else{
+  		$("#phonenuma").append("<b>false</b>");
+  	}
+  })
+  $("#email").blur(function(){
+  	var email = $(this).val();
+  	var match = /^\d+@(qq|163)\.com$/.test(email);
+  	$("#emaila").empty();
+  	if(match){
+  		$("#emaila").append("<b>ok</b>");
+  	}else{
+  		$("#emaila").append("<b>false</b>");
+  	}
+  })
+});
+</script>
